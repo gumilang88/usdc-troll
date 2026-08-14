@@ -1,0 +1,151 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme inline {
+  --color-background: #050a1c;
+  --color-foreground: #eaf2ff;
+  --color-primary: #2f7bff;
+  --color-primary-foreground: #ffffff;
+  --color-accent: #00e5ff;
+  --color-troll-blue: #1e6bff;
+  --color-troll-cyan: #35e0ff;
+  --color-troll-gold: #ffd23f;
+  --color-troll-pink: #ff4fd8;
+  --font-heading: var(--font-russo-one), ui-sans-serif, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --background: #050a1c;
+  --foreground: #eaf2ff;
+  --primary: #2f7bff;
+  --primary-foreground: #ffffff;
+  --accent: #00e5ff;
+  --radius: 1rem;
+}
+
+@layer base {
+  * {
+    border-color: rgba(120, 160, 240, 0.15);
+  }
+  html {
+    background: #050a1c;
+  }
+  body {
+    background: #050a1c;
+    color: #eaf2ff;
+    font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  }
+  ::selection {
+    background: #2f7bff;
+    color: #fff;
+  }
+}
+
+/* ---------- unique animations ---------- */
+
+/* floating troll face */
+@keyframes troll-float {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  25% { transform: translateY(-14px) rotate(1deg); }
+  50% { transform: translateY(-4px) rotate(-1deg); }
+  75% { transform: translateY(-18px) rotate(2deg); }
+}
+.anim-float {
+  animation: troll-float 6s ease-in-out infinite;
+}
+
+/* glitch text */
+@keyframes glitch-shift {
+  0%, 100% { text-shadow: 2px 0 #35e0ff, -2px 0 #ff4fd8; transform: translate(0); }
+  20% { text-shadow: -3px 0 #35e0ff, 3px 0 #ff4fd8; transform: translate(-2px, 1px); }
+  40% { text-shadow: 2px 0 #ff4fd8, -2px 0 #35e0ff; transform: translate(2px, -1px); }
+  60% { text-shadow: -2px 0 #ff4fd8, 2px 0 #ffd23f; transform: translate(-1px, 0); }
+  80% { text-shadow: 3px 0 #35e0ff, -3px 0 #ffd23f; transform: translate(1px, 1px); }
+}
+.anim-glitch {
+  animation: glitch-shift 3s steps(1) infinite;
+}
+
+/* marquee scroll */
+@keyframes marquee-x {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.anim-marquee {
+  animation: marquee-x 22s linear infinite;
+}
+
+/* pulsing glow ring behind face */
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.06); }
+}
+.anim-glow {
+  animation: glow-pulse 4s ease-in-out infinite;
+}
+
+/* gradient shimmer on buttons */
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+.anim-shimmer {
+  background-size: 200% 200%;
+  animation: shimmer 3s linear infinite;
+}
+
+/* spin slow for $ coin */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.anim-spin-slow {
+  animation: spin-slow 14s linear infinite;
+}
+
+/* bobble for $ coins in hero */
+@keyframes coin-bob {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-22px) rotate(12deg); }
+}
+.anim-coin {
+  animation: coin-bob 4.5s ease-in-out infinite;
+}
+
+/* reveal on scroll */
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.anim-reveal {
+  animation: reveal-up 0.7s ease-out both;
+}
+
+/* blurred blob background movement */
+@keyframes blob-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -40px) scale(1.15); }
+  66% { transform: translate(-40px, 20px) scale(0.9); }
+}
+.anim-blob {
+  animation: blob-drift 16s ease-in-out infinite;
+}
+
+/* grid overlay */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(47, 123, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(47, 123, 255, 0.07) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* glass card */
+.glass {
+  background: rgba(16, 28, 60, 0.55);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(120, 160, 240, 0.18);
+}
+
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { scrollbar-width: none; }
