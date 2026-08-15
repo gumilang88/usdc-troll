@@ -1,0 +1,9 @@
+# Cloudflare Pages config
+# Deploy: https://developers.cloudflare.com/pages/
+name = "usdc-troll"
+
+# Pages build settings (bisa juga di-set di dashboard Cloudflare)
+pages_build_output_dir = "out"
+
+# Jika pakai custom domain di root (mis. usdctroll.com), kosongkan basePath.
+# Jika deploy ke subdomain *.pages.dev, set basePath = "/" (atau sesuai path) di next.config.ts.

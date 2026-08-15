@@ -62,13 +62,16 @@ export default function Home() {
 
       {/* ---- marquee ticker ---- */}
       <div className="relative z-10 border-y border-blue-400/20 bg-[#0a1228]/60 overflow-hidden py-3">
-        <div className="anim-marquee flex whitespace-nowrap gap-8 w-max">
+        <div className="anim-marquee flex whitespace-nowrap w-max">
           {[0, 1].map((k) => (
-            <div key={k} className="flex gap-8 items-center text-sm font-bold text-cyan-200/80">
-              <span>HOLD THE TROLL</span><span className="text-yellow-300">$TROLL</span>
-              <span>EARN WHILE YOU TROLL</span><span className="text-pink-400">APR 620%</span>
-              <span>NO ROADMAP. JUST VIBES.</span><span className="text-yellow-300">$TROLL</span>
-              <span>STAY SMUG</span><span className="text-cyan-300">👌</span>
+            <div key={k} className="flex items-center gap-8 shrink-0 pr-8">
+              {["HOLD THE TROLL", "EARN WHILE YOU TROLL", "STAY SMUG", "TROLL THE MARKET", "BUY. STAKE. SMIRK."].map((t, i) => (
+                <span key={t} className="flex items-center gap-3 text-sm font-bold text-cyan-200/80">
+                  <span>{t}</span>
+                  <span className="text-yellow-300">$TROLL</span>
+                  {i % 2 === 0 && <span className="text-pink-400">👌</span>}
+                </span>
+              ))}
             </div>
           ))}
         </div>
@@ -144,7 +147,7 @@ export default function Home() {
             Lock it. Earn it. Troll on.
           </p>
         </div>
-        <StakePanel apr="620%" />
+        <StakePanel apr="780%" />
       </section>
 
       {/* ---- stats / features ---- */}
