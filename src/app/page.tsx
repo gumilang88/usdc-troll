@@ -8,6 +8,7 @@ import CopyButton from "@/components/CopyButton";
 import FaqAccordion from "@/components/FaqAccordion";
 import Roadmap from "@/components/Roadmap";
 import About from "@/components/About";
+import TrollOMeter from "@/components/TrollOMeter";
 import { TOKEN_CONTRACT } from "@/lib/chain";
 
 const DEX = "https://radardex.pro/#" + TOKEN_CONTRACT;
@@ -174,6 +175,11 @@ export default function Home() {
             FAQ
           </h3>
           <FaqAccordion />
+        </div>
+
+        {/* ---- TROLL-O-METER ---- */}
+        <div className="mt-16 max-w-xl mx-auto">
+          <TrollOMeter />
         </div>
 
         {/* ---- ROADMAP ---- */}
